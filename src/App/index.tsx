@@ -1,10 +1,8 @@
 import * as React from "react";
-// import * as request from "superagent";
+import * as request from "superagent";
 import "./index.css";
 import { LineChart } from "../LineChart";
 import { Table } from "../Table";
-// import { TableHeader } from "../TableHeader";
-// import { TableRow } from "../TableRow";
 import { DataModel, TransposedDataModel } from "../types";
 
 const url =
@@ -13,22 +11,29 @@ const url =
 type AppState = {};
 
 const transposeData = (data: DataModel): TransposedDataModel => {
-  return [];
+  return [data];
 };
 
-
 class App extends React.Component<{}, AppState> {
-  state: AppState = {};
+  state: AppState = {
+    cheese: 'ham'
+  };
 
-  componentDidMount() {}
+  componentDidMount() {
+    request.get(url, (err, res) => {
+      if (err) throw err;
+      console.log(res.text)
+      console.table(transposeData(res.text))
+    });
+  }
 
   render() {
     return (
       <div className="App">
-        <div className="content-item">
+        < div className = "content-item" >
           <LineChart />
-        </div>
-        <div className="content-item">
+        </div> 
+        <div className = "content-item" >
           <Table />
         </div>
       </div>
