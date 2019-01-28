@@ -5,27 +5,27 @@ import "./index.css";
 //     data: string
 // };
 
-let samplePoints: number[] = [40.4,
-    44.5,
-    53.2,
-    64.8,
-    74.9,
-    84.2,
-    88.0,
-    86.3,
-    78.7,
-    67.2,
-    56.1,
-    44.6]
+// let samplePoints: number[] = [40.4,
+//     44.5,
+//     53.2,
+//     64.8,
+//     74.9,
+//     84.2,
+//     88.0,
+//     86.3,
+//     78.7,
+//     67.2,
+//     56.1,
+//     44.6]
 
-let pixelDistance: number = 0;
+// let pixelDistance: number = 0;
 
-let polylinePoints: number[][] = samplePoints.map( (index) => {
-    return [pixelDistance++*20, index];   
-})
+// let polylinePoints: number[][] = samplePoints.map( (index) => {
+//     return [pixelDistance++*20, index];   
+// })
 
-let polyString: string = polylinePoints.join(' ')
-console.log(polyString)
+// let polyString: string = polylinePoints.join(' ')
+// console.log(polyString)
 
 const minColor = "#128";
 const maxColor = "#C42";
