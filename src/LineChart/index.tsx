@@ -1,40 +1,18 @@
 import * as React from "react";
 import "./index.css";
 
-// type LineChartProps = {
-//     data: string
-// };
-
-// let samplePoints: number[] = [40.4,
-//     44.5,
-//     53.2,
-//     64.8,
-//     74.9,
-//     84.2,
-//     88.0,
-//     86.3,
-//     78.7,
-//     67.2,
-//     56.1,
-//     44.6]
-
-// let pixelDistance: number = 0;
-
-// let polylinePoints: number[][] = samplePoints.map( (index) => {
-//     return [pixelDistance++*20, index];   
-// })
-
-// let polyString: string = polylinePoints.join(' ')
-// console.log(polyString)
+type LineChartProps = {
+    data: {}[]
+};
 
 const minColor = "#128";
 const maxColor = "#C42";
 const avgColor = "#888";
 
-const LineChart = () => 
+const LineChart = (props: LineChartProps)  => 
         
     <> 
-        <h1>line chart:</h1>
+        <h1>{props.data[0][0]}:</h1>
         <svg viewBox="0 0 500 100" className="chart">
         
         <polyline

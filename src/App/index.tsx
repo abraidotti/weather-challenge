@@ -25,7 +25,8 @@ const transposeData = (data: DataModel): TransposedDataModel => {
       return [pixelDistance++*20, index];   
     })
 
-    let polyString: string = polylinePoints.join(' ');
+    let polyString: string = polylinePoints.join(' ')
+    console.log("poly string per metric:", polyString)
     polylineStringArray[arrayIndex] = polyString;
     arrayIndex++;
   }
@@ -46,8 +47,12 @@ class App extends React.Component<{}, AppState> {
       this.setState({
         temperatureObject: res.body,
       }, () => {
+        console.log('temperatures saved:', this.state.temperatureObject)
         let transposedData = transposeData(this.state.temperatureObject);
-        this.setState({ polylineArray: transposedData }), () => {
+        console.log('transposed data:', transposedData[0]);
+        this.setState({ 
+          polylineArray: transposedData
+        }), () => {
           console.log('polylineArray in state:', this.state.polylineArray)
         }
       });  
@@ -55,16 +60,25 @@ class App extends React.Component<{}, AppState> {
   }
 
   render() {
-    return (
-      <div className="App">
-        < div className = "content-item" >
-          <LineChart />
-        </div> 
-        <div className = "content-item" >
-          <Table />
+    if (this.state.temperatureObject && this.state.polylineArray) {
+      return (
+        <div className="App">
+          <div className = "content-item" >
+            <LineChart data={this.state.polylineArray} />
+          </div> 
+          <div className = "content-item" >
+            <Table data={this.state.temperatureObject} />
+          </div>
         </div>
-      </div>
-    );
+      )
+    }
+    else {
+      return (
+        <>
+          <h1>waiting for data...</h1>
+        </>
+      )
+    }
   }
 }
 
