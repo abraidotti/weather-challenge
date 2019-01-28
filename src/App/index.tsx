@@ -3,28 +3,39 @@ import * as request from "superagent";
 import "./index.css";
 import { LineChart } from "../LineChart";
 import { Table } from "../Table";
-import { DataModel, TransposedDataModel } from "../types";
+// import { DataModel, TransposedDataModel } from "../types";
 
 const url =
   "https://storage.googleapis.com/quotapath-challenge/data/weather.json";
 
-type AppState = {};
-
-const transposeData = (data: DataModel): TransposedDataModel => {
-  return [data];
+type AppState = {
+  temperatureObject: {},
 };
+
+// const transposeData = (data: DataModel): TransposedDataModel => {
+//   return [data];
+// };
 
 class App extends React.Component<{}, AppState> {
   state: AppState = {
-    cheese: 'ham'
+   temperatureObject: {}
   };
 
   componentDidMount() {
     request.get(url, (err, res) => {
       if (err) throw err;
-      console.log(res.text)
-      console.table(transposeData(res.text))
-    });
+        this.setState({
+          temperatureObject: res.body
+        }, () => {
+        console.log("temperatures saved:", this.state.temperatureObject)
+        
+        console.log("temperatures transposed now")
+        });
+      
+    })
+
+
+
   }
 
   render() {
