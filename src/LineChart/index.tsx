@@ -11,6 +11,7 @@ const avgColor = "#888";
 
 const LineChart = (props: LineChartProps)  => 
     <>  
+        <h1>Line Chart</h1>
         <svg viewBox="0 0 500 100" className="chart">
             <polyline
                 fill="none"
@@ -33,6 +34,12 @@ const LineChart = (props: LineChartProps)  =>
                 points={props.data[0][2]}
                 />
         </svg>
+        <br></br>
+        <div className="chart-key">
+            <span style={{color: "#C42"}}>max temps </span>
+            <span style={{color: "#888"}}>avg temps </span>
+            <span style={{color: "#128"}}>min temps </span>
+        </div>
     </>;
 
 export { LineChart };

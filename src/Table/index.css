@@ -14,8 +14,19 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
     color: white;
+}
+
+#temps th:nth-child(1) {
+    background: #C42;
+}
+
+#temps th:nth-child(2) {
+    background: #888;
+}
+
+#temps th:nth-child(3) {
+    background: #128;
 }
 
 #temps tr:nth-child(even) {

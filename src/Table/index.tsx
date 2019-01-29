@@ -8,14 +8,17 @@ type TableProps = {
 };
 
 const Table = (props: TableProps) => 
-    <>
-        
+    <>  
+        <h1>Table</h1>
         <table id="temps">
             <thead>
                 <TableHeader names={props.data}/>
             </thead>
             <tbody>
-                {(Object.keys(props.data['avg']).map((name, index) => <TableRow temps={props.data} key={index} keyIndex={index}/>))}
+                {
+                (Object.keys(props.data['avg']).map((name, index) => 
+                    <TableRow temps={props.data} key={index} keyIndex={index}/>))
+                }
             </tbody>
         </table>
     </>;

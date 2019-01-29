@@ -22,16 +22,15 @@ const transposeData = (data: DataModel): TransposedDataModel => {
     let pixelDistance: number = 0;
     
     let polylinePoints: number[][] = data[metric].map( (index: number) => {
-      return [pixelDistance++*50, index];   
+      return [pixelDistance++*50, (100-index).toFixed(1)];   
     })
 
-    let polyString: string = polylinePoints.join(' ')
-    console.log("poly string per metric:", polyString)
+    let polyString: string = polylinePoints.join(' ');
     polylineStringArray[arrayIndex] = polyString;
     arrayIndex++;
   }
 
-  return [polylineStringArray]
+  return [polylineStringArray];
 };
 
 class App extends React.Component<{}, AppState> {
@@ -43,18 +42,13 @@ class App extends React.Component<{}, AppState> {
   componentDidMount() {
     request.get(url, (err, res) => {
       if (err) throw err;
-      console.log('res.body', res.body);
       this.setState({
         temperatureObject: res.body,
       }, () => {
-        console.log('temperatures saved:', this.state.temperatureObject)
         let transposedData = transposeData(this.state.temperatureObject);
-        console.log('transposed data:', transposedData[0]);
         this.setState({ 
           polylineArray: transposedData
-        }), () => {
-          console.log('polylineArray in state:', this.state.polylineArray)
-        }
+        })
       });  
     })
   }
