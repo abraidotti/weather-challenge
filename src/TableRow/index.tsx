@@ -8,11 +8,12 @@ type TableRowProps = {
 
 const TableRow = (props: TableRowProps) => 
     <>
-        {
-            <tr>{(Object.keys(props.temps).map((name, index) => 
-                <td key={index}>{props.temps[name][props.keyIndex]}</td>))}
-            </tr>
-        }
+        <tr>
+            {
+                (Object.keys(props.temps).map((name, index) => 
+                    <td key={index}>{props.temps[name][props.keyIndex]}</td>))
+            }
+        </tr>
     </>;
 
 export { TableRow };

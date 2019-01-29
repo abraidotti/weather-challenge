@@ -68,9 +68,7 @@ class App extends React.Component<{}, AppState> {
     }
     else {
       return (
-        <>
-          <h1>waiting for data...</h1>
-        </>
+        <h1>waiting for data...</h1>
       )
     }
   }

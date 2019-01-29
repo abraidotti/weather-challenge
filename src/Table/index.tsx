@@ -16,8 +16,8 @@ const Table = (props: TableProps) =>
             </thead>
             <tbody>
                 {
-                (Object.keys(props.data['avg']).map((name, index) => 
-                    <TableRow temps={props.data} key={index} keyIndex={index}/>))
+                    (Object.keys(props.data['avg']).map((name, index) => 
+                        <TableRow temps={props.data} key={index} keyIndex={index}/>))
                 }
             </tbody>
         </table>

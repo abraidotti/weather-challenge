@@ -6,8 +6,10 @@ type TableHeaderProps = {
 };
 
 const TableHeader = (props: TableHeaderProps) => 
-    <tr>
-        {(Object.keys(props.names).map((name, index) => <th key={index}>{name}</th>))}
-    </tr>;
+    <>
+        <tr>
+            {(Object.keys(props.names).map((name, index) => <th key={index}>{name}</th>))}
+        </tr>
+    </>;
 
 export { TableHeader };
