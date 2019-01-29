@@ -10,104 +10,28 @@ const maxColor = "#C42";
 const avgColor = "#888";
 
 const LineChart = (props: LineChartProps)  => 
-        
-    <> 
-        <h1>{props.data[0][0]}:</h1>
+    <>  
         <svg viewBox="0 0 500 100" className="chart">
-        
-        <polyline
-        fill="none"
-        stroke={minColor}
-        strokeWidth="2"
-        points="
-        00,100
-        20,60
-        40,80
-        60,20
-        80,80
-        100,80
-        120,60
-        140,100
-        160,90
-        180,80
-        200, 110
-        220, 10
-        240, 70
-        260, 100
-        280, 100
-        300, 40
-        320, 0
-        340, 100
-        360, 100
-        380, 120
-        400, 60
-        420, 70
-        440, 80
-    "
-        />
+            <polyline
+                fill="none"
+                stroke={maxColor}
+                strokeWidth="2"
+                points={props.data[0][0]}
+                />
 
-    <polyline
-        fill="none"
-        stroke={maxColor}
-        strokeWidth="2"
-        points="
-            00,100
-            20,60
-            40,80
-            60,20
-            80,80
-            100,80
-            120,60
-            140,100
-            160,90
-            180,80
-            200, 110
-            220, 10
-            240, 70
-            260, 100
-            280, 100
-            300, 40
-            320, 0
-            340, 100
-            360, 100
-            380, 120
-            400, 60
-            420, 70
-            440, 80
-        "
-        />
+            <polyline
+                fill="none"
+                stroke={avgColor}
+                strokeWidth="2"
+                points={props.data[0][1]}
+                />
 
-    <polyline
-        fill="none"
-        stroke={avgColor}
-        strokeWidth="2"
-        points="
-            00,140
-            20,60
-            40,80
-            60,20
-            80,80
-            100,80
-            120,60
-            140,100
-            160,90
-            180,80
-            200, 110
-            220, 10
-            240, 70
-            260, 100
-            280, 100
-            300, 40
-            320, 0
-            340, 100
-            360, 100
-            380, 120
-            400, 60
-            420, 70
-            440, 80
-        "
-        />
-
+            <polyline
+                fill="none"
+                stroke={minColor}
+                strokeWidth="2"
+                points={props.data[0][2]}
+                />
         </svg>
     </>;
 

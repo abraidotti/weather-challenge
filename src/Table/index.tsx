@@ -12,7 +12,7 @@ const Table = (props: TableProps) =>
         <h1>{Object.keys(props.data)}:</h1>
         <table id="temps">
             <tbody>
-                <TableHeader />
+                <TableHeader names={props.data}/>
                 <TableRow />
             </tbody>
     </table>

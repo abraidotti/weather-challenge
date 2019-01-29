@@ -22,7 +22,7 @@ const transposeData = (data: DataModel): TransposedDataModel => {
     let pixelDistance: number = 0;
     
     let polylinePoints: number[][] = data[metric].map( (index: number) => {
-      return [pixelDistance++*20, index];   
+      return [pixelDistance++*50, index];   
     })
 
     let polyString: string = polylinePoints.join(' ')
