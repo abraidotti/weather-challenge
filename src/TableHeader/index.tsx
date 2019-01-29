@@ -2,10 +2,8 @@ import * as React from "react";
 import "./index.css";
 
 type TableHeaderProps = {
-    names:{}
+    names: {}
 };
-
-console.log()
 
 const TableHeader = (props: TableHeaderProps) => 
     <tr>

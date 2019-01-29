@@ -1,10 +1,20 @@
 import * as React from "react";
 import "./index.css";
 
-type TableRowProps = {};
+type TableRowProps = {
+    temps: {}
+};
 
-const TableRow = ({  }: TableRowProps) => 
+
+
+const TableRow = (props: TableRowProps) => 
     <>
+    {console.log(props)}
+
+    {<tr>{(Object.keys(props.temps).map((name, index) => <td key={index}>{props.temps[name][index]}</td>))}</tr>}
+    {<tr>{(Object.keys(props.temps).map((name, index) => <td key={index}>{props.temps[name][index+1]}</td>))}</tr>}
+    {<tr>{(Object.keys(props.temps).map((name, index) => <td key={index}>{props.temps[name][index+2]}</td>))}</tr>}
+
     <tr>
         <td>Alfreds Futterkiste</td>
         <td>Maria Anders</td>

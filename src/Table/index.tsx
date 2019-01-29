@@ -13,7 +13,7 @@ const Table = (props: TableProps) =>
         <table id="temps">
             <tbody>
                 <TableHeader names={props.data}/>
-                <TableRow />
+                <TableRow temps={props.data}/>
             </tbody>
     </table>
     </>;
