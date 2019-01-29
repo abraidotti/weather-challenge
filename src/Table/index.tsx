@@ -9,13 +9,15 @@ type TableProps = {
 
 const Table = (props: TableProps) => 
     <>
-        <h1>{Object.keys(props.data)}:</h1>
+        
         <table id="temps">
-            <tbody>
+            <thead>
                 <TableHeader names={props.data}/>
-                <TableRow temps={props.data}/>
+            </thead>
+            <tbody>
+                {(Object.keys(props.data['avg']).map((name, index) => <TableRow temps={props.data} key={index} keyIndex={index}/>))}
             </tbody>
-    </table>
+        </table>
     </>;
 
 export { Table };
